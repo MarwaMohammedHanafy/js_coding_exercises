@@ -3,20 +3,35 @@
  * @param {Number} n
  */
 const sumDigits = n => {
+  //console.log(n)
   if (n === undefined) throw new Error("n is required");
+  if (!Number.isInteger(n)) throw new Error("n is not integer");
+  let sum = 0;
+  while (n) {
+    sum += n % 10;
+    n = Math.floor(n / 10);
+  }
+  return sum;
 };
 
 /**
- * This function creates a range of numbers as an array. It received a start, an end and a step. Step is the gap between numbers in the range. For example, if start = 3, end = 11 and step = 2 the resulting range would be: [3, 5, 7, 9, 11]
+ * This function creates a range of numbers as an array. It received a start, an end and a step. Step is the gap between numbers in the range.
+ *  For example, if start = 3, end = 11 and step = 2 the resulting range would be: [3, 5, 7, 9, 11]
  * Both the start and the end numbers are inclusive.
  * Step is an optional parameter. If it is not provided, assume the step is 1.
  * @param {Number} start
  * @param {Number} end
  * @param {Number} step
  */
-const createRange = (start, end, step) => {
+const createRange = (start, end, step = 1) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  let resArray = [];
+  let k = 0;
+  for (let i = start; i <= end; i += step) {
+    resArray[k++] = i;
+  }
+  return resArray;
 };
 
 /**

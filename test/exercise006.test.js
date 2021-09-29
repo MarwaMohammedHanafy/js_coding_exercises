@@ -121,7 +121,7 @@ describe("createMatrix", () => {
     });
     test('should return matrix ', () => {
         //to solve serializes to the same string problem to make deep comparison
-        expect(createMatrix(3, 'fn')).toStrictEqual ([['fn', 'fn', 'fn'], ['fn', 'fn', 'fn'], ['fn', 'fn', 'fn']]);
+        expect(createMatrix(3, 'fn')).toStrictEqual([['fn', 'fn', 'fn'], ['fn', 'fn', 'fn'], ['fn', 'fn', 'fn']]);
     });
 });
 describe("areWeCovered", () => {
@@ -132,8 +132,8 @@ describe("areWeCovered", () => {
         expect(() => {
             areWeCovered(([{ name: "marwa", rota: ["Monday", "Tuesday"] }]));
         }).toThrow("day is required");
-        
-        
+
+
     });
     test('it returns false , if  there are no  staff', () => {
         expect(areWeCovered([], 'Saturday')).toBe(false);

@@ -98,23 +98,23 @@ const isItPrime = n => {
  * @param {Any} fill
  * @returns {Array}
  */
-const createMatrix = (n  , fill) => {
- // console.log(n)
- // console.log(fill)
+const createMatrix = (n, fill) => {
+  // console.log(n)
+  // console.log(fill)
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
-  
+
   let resArray = [];
   for (let i = 0; i < n; i++) {
     resArray[i] = [];
     for (let j = 0; j < n; j++) {
-     // console.log(j);
+      // console.log(j);
       resArray[i][j] = fill;
     }
     //console.log(i);
   }
   //console.log(resArray);
-return resArray;
+  return resArray;
 };
 
 /**
@@ -132,16 +132,16 @@ return resArray;
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
-  if(staff === 0 ){
+  if (staff === 0) {
     return false;
   }
-  let countOfStaff = 0; 
-  for (let key in staff){
-    if(staff[key].rota.includes(day)){
+  let countOfStaff = 0;
+  for (let key in staff) {
+    if (staff[key].rota.includes(day)) {
       countOfStaff++;
     }
   }
-  return countOfStaff >= 3 ? true: false;
+  return countOfStaff >= 3 ? true : false;
 };
 
 module.exports = {
