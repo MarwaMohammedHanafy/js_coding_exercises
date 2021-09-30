@@ -125,6 +125,41 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+  //All three cells in any row are the same
+  for (let row = 0; row < 3; row++) {
+    let rowSum = 0;
+    for (let col = 0; col < 3; col++) {
+      rowSum += (board[row][col] === '0') ? 1 : (board[row][col] === 'X') ? -1 : 0;
+    }
+    if (rowSum === 3)
+      return '0';
+    else if (rowSum === -3)
+      return 'x';
+  }
+  //All three cells in any column are the same
+  for (var col = 0; col < 3; col++) {
+    var colSum = 0;
+    for (var row = 0; row < 3; row++) {
+      colSum += (board[row][col] === '0') ? 1 : (board[row][col] === 'X') ? -1 : 0;
+    }
+    if (colSum === 3)
+      return '0';
+    else if (colSum === -3)
+      return 'x';
+  }
+  //All three cells traversing the board diagonally are the same.
+  if (board[0][0] === '0' && board[1][1] === '0' && board[2][2] === '0')
+    return '0';
+  if (board[0][0] === 'X' && board[1][1] === 'X' && board[2][2] === 'X')
+    return 'x';
+
+  if (board[2][0] === '0' && board[1][1] === '0' && board[0][2] === '0')
+    return '0';
+  if (board[2][0] === 'X' && board[1][1] === 'X' && board[0][2] === 'X')
+    return 'x';
+  //no onw win
+  return null;
+
 };
 
 module.exports = {

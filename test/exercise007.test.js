@@ -2,7 +2,8 @@ const {
     sumDigits,
     createRange,
     getScreentimeAlertList,
-    hexToRGB
+    hexToRGB,
+    findWinner
 } = require("../challenges/exercise007");
 
 describe("sumDigits", () => {
@@ -125,5 +126,69 @@ describe("hexToRGB", () => {
     test('it works okay with edges', () => {
         expect(hexToRGB('#FFFFFF')).toBe('rgb(255,255,255)');
         expect(hexToRGB('#000000')).toBe('rgb(0,0,0)');
+    });
+});
+describe("findWinner", () => {
+    test('it throws an error if not passed board ', () => {
+        expect(() => {
+            findWinner();
+        }).toThrow("board is required");
+    });
+    test('return null ,If no one one', () => {
+        const board = [
+            ["X", "0", null],
+            [null, null, "0"],
+            ["X", null, "0"]
+        ];
+        expect(findWinner(board)).toBe(null);
+    });
+
+    test('return x ,If all three cells in any row are x', () => {
+        const board = [
+            ["X", "X", "X"],
+            [null, null, "0"],
+            ["X", null, "0"]
+        ];
+        expect(findWinner(board)).toBe('x');
+    });
+    test('return 0 ,If all three cells in any row are 0', () => {
+        const board = [
+            ["X", "0", null],
+            [null, null, "0"],
+            ["0", "0", "0"]
+        ];
+        expect(findWinner(board)).toBe('0');
+    });
+    test('return x ,If all three cells in any column are x', () => {
+        const board = [
+            ["X", "0", null],
+            ["X", null, "0"],
+            ["X", null, "0"]
+        ];
+        expect(findWinner(board)).toBe('x');
+    });
+    test('return 0 ,If all three cells in any column are 0', () => {
+        const board = [
+            ["X", "0", "0"],
+            [null, null, "0"],
+            ["X", null, "0"]
+        ];
+        expect(findWinner(board)).toBe('0');
+    });
+    test('return x ,If all three cells traversing the board diagonally are x', () => {
+        const board = [
+            ["X", "0", "null"],
+            [null, "X", "0"],
+            ["X", null, "X"]
+        ];
+        expect(findWinner(board)).toBe('x');
+    });
+    test('return 0 ,If all three cells traversing the board diagonally are 0', () => {
+        const board = [
+            ["X", "0", "0"],
+            [null, "0", "x"],
+            ["0", null, "0"]
+        ];
+        expect(findWinner(board)).toBe('0');
     });
 });
