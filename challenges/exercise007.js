@@ -80,7 +80,7 @@ const getScreentimeAlertList = (users, date) => {
         for (let appRecord in users[userRecord].screenTime[dayRecord].usage) {
           usageTime += users[userRecord].screenTime[dayRecord].usage[appRecord];
         }
-        console.log(usageTime);
+        // console.log(usageTime);
         if (usageTime > 100) {
           resArray.push(users[userRecord].username);
         }
@@ -92,17 +92,25 @@ const getScreentimeAlertList = (users, date) => {
 };
 
 /**
- * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. If you want to know more about hexadecimal notation:
+ * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation,
+ *  i.e. base 16. If you want to know more about hexadecimal notation:
  * https://www.youtube.com/watch?v=u_atXp-NF6w
- * For colour codes, the first 2 chars (FF in this case) represent the amount of red, the next 2 chars (11) represent the amound of green, and the last 2 chars (33) represent the amount of blue.
+ * For colour codes, the first 2 chars (FF in this case) represent the amount of red, the next 2 chars (11) represent the amound of green,
+ *  and the last 2 chars (33) represent the amount of blue.
  * Colours can also be represented in RGB format, using decimal notation.
  * This function should transform the hex code into an RGB code in the format:
- * "rgb(255,17,51)"
+ * 
  * Hint: You will need to convert each hexadecimal value for R, G and B into its decimal equivalent!
  * @param {String} str
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  if (hexStr.length > 7) throw new Error("invalid hexadecimal code");
+  let colors = [];
+  for (let i = 1; i < hexStr.length; i += 2) {
+    colors.push(hexStr.substring(i, i + 2));
+  }
+  return `rgb(${parseInt(colors[0], 16)},${parseInt(colors[1], 16)},${parseInt(colors[2], 16)})`;
 };
 
 /**
