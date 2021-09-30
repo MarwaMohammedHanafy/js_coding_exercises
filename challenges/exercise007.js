@@ -35,7 +35,8 @@ const createRange = (start, end, step = 1) => {
 };
 
 /**
- * This function takes an array of user objects and their usage in minutes of various applications. The format of the data should be as follows:
+ * This function takes an array of user objects and their usage in minutes of various applications.
+ *  The format of the data should be as follows:
  * [
  *  {
  *    username: "beth_1234",
@@ -66,6 +67,28 @@ const createRange = (start, end, step = 1) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  let resArray = [];
+  for (let userRecord in users) {
+    //console.log(users[userRecord].username);
+    for (let dayRecord in users[userRecord].screenTime) {
+      //console.log(users[userRecord].screenTime);
+      //console.log(date);
+      //console.log(users[userRecord].screenTime[dayRecord]);
+      if (date === users[userRecord].screenTime[dayRecord].date) {
+        //console.log(date);
+        let usageTime = 0;
+        for (let appRecord in users[userRecord].screenTime[dayRecord].usage) {
+          usageTime += users[userRecord].screenTime[dayRecord].usage[appRecord];
+        }
+        console.log(usageTime);
+        if (usageTime > 100) {
+          resArray.push(users[userRecord].username);
+        }
+      }
+    }
+  }
+  return resArray;
+
 };
 
 /**

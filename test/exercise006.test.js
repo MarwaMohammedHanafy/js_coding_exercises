@@ -145,7 +145,7 @@ describe("areWeCovered", () => {
             { name: "Noha", rota: ["Monday", "Tuesday"] },
             { name: "jess", rota: ["Monday", "Tuesday"] }
         ];
-        expect(areWeCovered(staff, 'Saturday')).toBe(false);
+        expect(areWeCovered(staff, 'Saturday')).toStrictEqual(false);
     });
     test('it returns true , if  there are more than 3 staff  ', () => {
         const staff = [
