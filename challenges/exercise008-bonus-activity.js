@@ -34,7 +34,9 @@ function splitThatString(string){
 
 function addressLookUp(user){
     if (!user) throw new Error("user is required");
+    
     // Your solution using optional chaining here!
+    return (user?.address?.postcode);
 }
 
 
