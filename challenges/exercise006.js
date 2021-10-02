@@ -99,21 +99,16 @@ const isItPrime = n => {
  * @returns {Array}
  */
 const createMatrix = (n, fill) => {
-  // console.log(n)
-  // console.log(fill)
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
 
   let resArray = [];
-  for (let i = 0; i < n; i++) {
-    resArray[i] = [];
-    for (let j = 0; j < n; j++) {
-      // console.log(j);
-      resArray[i][j] = fill;
+  for (let row = 0; row < n; row++) {
+    resArray[row] = [];
+    for (let col = 0; col < n; col++) {
+      resArray[row][col] = fill;
     }
-    //console.log(i);
   }
-  //console.log(resArray);
   return resArray;
 };
 
@@ -141,7 +136,7 @@ const areWeCovered = (staff, day) => {
       countOfStaff++;
     }
   }
-  return countOfStaff >= 3 ? true : false;
+  return countOfStaff >= 3;
 };
 
 module.exports = {

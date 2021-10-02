@@ -39,8 +39,8 @@ function getCities(users) {
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   return (nums.map(num => {
-    let x = Math.sqrt(num);
-    return (x % 1 ? parseFloat(x.toFixed(2)) : x);
+    let numSqrt = Math.sqrt(num);
+    return (numSqrt % 1 ? parseFloat(numSqrt.toFixed(2)) : numSqrt);
   }));
 
 }

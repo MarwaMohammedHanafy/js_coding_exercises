@@ -12,11 +12,8 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  //console.log(((vatRate/100.0)*originalPrice) + originalPrice);
   let res = ((vatRate / 100.00) * originalPrice) + originalPrice;
-  //console.log(Number(res).toFixed(2));
-  return res % 1 ? parseFloat(Number(res).toFixed(2)) : res; //Number(res).toFixed(2) return string need to change to float 
-  //return res%1 == 0? res : res.toPrecision(4);//return string 
+  return res % 1 ? parseFloat(Number(res).toFixed(2)) : res; 
 }
 
 function getSalePrice(originalPrice, reduction) {
@@ -29,7 +26,7 @@ function getSalePrice(originalPrice, reduction) {
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
   let middle = str.length / 2;
-  //return str.length %2 === 0? str.substring(middle-1,middle)+ str.substring(middle,middle+1):str.substring(middle,middle+1);
+ 
   return str.length % 2 === 0 ? str.charAt(middle - 1) + str.charAt(middle) : str.charAt(middle);
 }
 
@@ -49,9 +46,8 @@ function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
   let count = 0;
   users.forEach(user => {
-    if (user.type === "Linux") {
-      count++;
-    }
+    if (user.type === "Linux")
+    count++;
   });
   return count;
 }

@@ -3,7 +3,6 @@
  * @param {Number} n
  */
 const sumDigits = n => {
-  //console.log(n)
   if (n === undefined) throw new Error("n is required");
   if (!Number.isInteger(n)) throw new Error("n is not integer");
   let sum = 0;
@@ -69,18 +68,12 @@ const getScreentimeAlertList = (users, date) => {
   if (date === undefined) throw new Error("date is required");
   let resArray = [];
   for (let userRecord in users) {
-    //console.log(users[userRecord].username);
     for (let dayRecord in users[userRecord].screenTime) {
-      //console.log(users[userRecord].screenTime);
-      //console.log(date);
-      //console.log(users[userRecord].screenTime[dayRecord]);
       if (date === users[userRecord].screenTime[dayRecord].date) {
-        //console.log(date);
         let usageTime = 0;
         for (let appRecord in users[userRecord].screenTime[dayRecord].usage) {
           usageTime += users[userRecord].screenTime[dayRecord].usage[appRecord];
         }
-        // console.log(usageTime);
         if (usageTime > 100) {
           resArray.push(users[userRecord].username);
         }
@@ -137,9 +130,9 @@ const findWinner = board => {
       return 'x';
   }
   //All three cells in any column are the same
-  for (var col = 0; col < 3; col++) {
-    var colSum = 0;
-    for (var row = 0; row < 3; row++) {
+  for (let col = 0; col < 3; col++) {
+    let colSum = 0;
+    for (let row = 0; row < 3; row++) {
       colSum += (board[row][col] === '0') ? 1 : (board[row][col] === 'X') ? -1 : 0;
     }
     if (colSum === 3)
