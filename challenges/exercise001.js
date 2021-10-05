@@ -12,20 +12,20 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  let res = ((vatRate / 100.00) * originalPrice) + originalPrice;
+  const res = ((vatRate / 100.00) * originalPrice) + originalPrice;
   return res % 1 ? parseFloat(Number(res).toFixed(2)) : res; 
 }
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  let res = originalPrice - ((reduction / 100.00) * originalPrice);
+  const res = originalPrice - ((reduction / 100.00) * originalPrice);
   return res % 1 ? parseFloat(Number(res).toFixed(2)) : res;
 }
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  let middle = str.length / 2;
+  const middle = str.length / 2;
  
   return str.length % 2 === 0 ? str.charAt(middle - 1) + str.charAt(middle) : str.charAt(middle);
 }
@@ -58,7 +58,7 @@ function getMeanScore(scores) {
   scores.forEach(score => {
     sum += score;
   });
-  let mean = sum / scores.length;
+  const mean = sum / scores.length;
   return (mean % 1) > 0 ? parseFloat(Number(mean).toFixed(2)) : mean;
 
 }

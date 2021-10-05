@@ -10,7 +10,7 @@ const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
   const resObj = { '0': 0, '1': 0 };
   for (let i = 0; i < str.length; i++) {
-    let char = str[i];
+    const char = str[i];
     resObj[char] === undefined ? resObj[char] = 1 : resObj[char] += 1;
   }
   return (resObj);
@@ -35,7 +35,7 @@ const sumArrays = arrs => {
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
   if (arr.length < 2) return arr;
-  let temp = arr[0];
+  const temp = arr[0];
   arr[0] = arr[arr.length - 1];
   arr[arr.length - 1] = temp;
   return arr;
@@ -44,7 +44,7 @@ const arrShift = arr => {
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  for (let key in haystack) {
+  for (const key in haystack) {
     if (haystack[key].toString().toLowerCase().includes(searchTerm.toLowerCase()))
       return true;
   }
@@ -53,10 +53,10 @@ const findNeedle = (haystack, searchTerm) => {
 
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
-  let wordFreq = {};
+  const wordFreq = {};
   str = str.toLowerCase();
   str = str.replace(/(!|,|\?)/g, "")
-  let wordArray = str.split(' ');
+  const wordArray = str.split(' ');
   wordArray.forEach(word => {
     wordFreq[word] === undefined ? wordFreq[word] = 1 : wordFreq[word] += 1;
   });

@@ -25,7 +25,7 @@ const sumDigits = n => {
 const createRange = (start, end, step = 1) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
-  let resArray = [];
+  const resArray = [];
   let k = 0;
   for (let i = start; i <= end; i += step) {
     resArray[k++] = i;
@@ -66,12 +66,12 @@ const createRange = (start, end, step = 1) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
-  let resArray = [];
-  for (let userRecord in users) {
-    for (let dayRecord in users[userRecord].screenTime) {
+  const resArray = [];
+  for (const userRecord in users) {
+    for (const dayRecord in users[userRecord].screenTime) {
       if (date === users[userRecord].screenTime[dayRecord].date) {
         let usageTime = 0;
-        for (let appRecord in users[userRecord].screenTime[dayRecord].usage) {
+        for (const appRecord in users[userRecord].screenTime[dayRecord].usage) {
           usageTime += users[userRecord].screenTime[dayRecord].usage[appRecord];
         }
         if (usageTime > 100) {
@@ -99,7 +99,7 @@ const getScreentimeAlertList = (users, date) => {
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
   if (hexStr.length > 7) throw new Error("invalid hexadecimal code");
-  let colors = [];
+  const colors = [];
   for (let i = 1; i < hexStr.length; i += 2) {
     colors.push(hexStr.substring(i, i + 2));
   }

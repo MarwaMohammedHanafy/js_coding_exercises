@@ -29,7 +29,7 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  let res = [];
+  const res = [];
   users.forEach(user => {
     res.push(user.data.city.displayName);
   });
@@ -39,7 +39,7 @@ function getCities(users) {
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   return (nums.map(num => {
-    let numSqrt = Math.sqrt(num);
+    const numSqrt = Math.sqrt(num);
     return (numSqrt % 1 ? parseFloat(numSqrt.toFixed(2)) : numSqrt);
   }));
 
@@ -55,7 +55,7 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  let res = [];
+  const res = [];
   triangles.forEach(triangle => {
     res.push(Math.max(...triangle));
   });

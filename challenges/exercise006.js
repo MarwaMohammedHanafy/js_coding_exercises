@@ -25,9 +25,9 @@ const sumMultiples = arr => {
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
   str = str.toLowerCase();
-  let check = 'CGTAcgta';
+  const check = 'CGTAcgta';
   for (let i = 0; i < str.length; i++) {
-    let char = str[i];
+    const char = str[i];
     if (!check.includes(char)) {
       return false;
     }
@@ -46,7 +46,7 @@ const getComplementaryDNA = str => {
   if (!isValidDNA(str)) throw new Error("str is not a valid DNA string");
   let basePair = '';
   for (let i = 0; i < str.length; i++) {
-    let char = str[i];
+    const char = str[i];
     switch (char) {
       case 'c': case 'C':
         basePair += 'G'
@@ -102,7 +102,7 @@ const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
 
-  let resArray = [];
+  const resArray = [];
   for (let row = 0; row < n; row++) {
     resArray[row] = [];
     for (let col = 0; col < n; col++) {
@@ -131,7 +131,7 @@ const areWeCovered = (staff, day) => {
     return false;
   }
   let countOfStaff = 0;
-  for (let key in staff) {
+  for (const key in staff) {
     if (staff[key].rota.includes(day)) {
       countOfStaff++;
     }

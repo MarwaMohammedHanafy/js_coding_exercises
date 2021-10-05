@@ -36,10 +36,10 @@ function checkIngredients(menu, ingredient) {
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  let commonArray = arr1.filter(num1 => {
+  const commonArray = arr1.filter(num1 => {
     return arr2.includes(num1);
   });
-  let resNoDuplicated = [];
+  const resNoDuplicated = [];
   commonArray.forEach(num => {
     if (!resNoDuplicated.includes(num))
       resNoDuplicated.push(num);
