@@ -13,7 +13,7 @@ function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
   const res = ((vatRate / 100.00) * originalPrice) + originalPrice;
-  return res % 1 ? parseFloat(Number(res).toFixed(2)) : res; 
+  return res % 1 ? parseFloat(Number(res).toFixed(2)) : res;
 }
 
 function getSalePrice(originalPrice, reduction) {
@@ -26,7 +26,7 @@ function getSalePrice(originalPrice, reduction) {
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
   const middle = str.length / 2;
- 
+
   return str.length % 2 === 0 ? str.charAt(middle - 1) + str.charAt(middle) : str.charAt(middle);
 }
 
@@ -37,9 +37,7 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  return (words.map(word => {
-    return word.split('').reverse().join('');
-  }));
+  return words.map(word => word.split('').reverse().join(''));
 }
 
 function countLinuxUsers(users) {
@@ -47,7 +45,7 @@ function countLinuxUsers(users) {
   let count = 0;
   users.forEach(user => {
     if (user.type === "Linux")
-    count++;
+      count++;
   });
   return count;
 }
